@@ -3,7 +3,7 @@ from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.poolmanager import PoolManager
 import ssl
 import json
-from time import gmtime, strftime 
+from time import gmtime, strftime ,sleep
 
 header = {
 'Accept':'application/json, text/javascript, */*; q=0.01',
@@ -16,11 +16,28 @@ header = {
 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
 'X-Requested-With':'XMLHttpRequest'	
 }
-url = 'https://poke5566.com/pokemons?latBL=25.037207163945503&lngBL=121.52821451858586&latTR=24.999524019373315&lngTR=121.50332361892765'
+
+url = 'https://poke5566.com/pokemons?latBL=25.200659&lngBL=121.648051&latTR=24.896521&lngTR=121.178511'
 print (url)
-r = requests.get(url,headers=header,timeout=0.5)
 
-data = json.loads(r.text)
 
-with open('data '+strftime("%Y-%m-%d-%H-%M-%S", gmtime())+'.json', 'w') as outfile:
-    json.dump(data, outfile,ensure_ascii=False)
+def crawler():
+	while(True):
+		r = requests.get(url,headers=header,timeout=0.5)
+		if str(r) == "<Response [200]>":
+			break
+		else:
+			sleep(10)
+
+	data = json.loads(r.text)
+
+	with open('./pokemon/data '+strftime("%Y-%m-%d-%H-%M-%S", gmtime())+'.json', 'w') as outfile:
+	    json.dump(data, outfile,ensure_ascii=False)
+
+
+
+
+#24.96662, 121.178511
+#25.009903, 121.648051
+#24.896521, 121.287715
+#25.200659, 121.430574

@@ -3,6 +3,7 @@ from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.poolmanager import PoolManager
 import ssl
 import json
+from time import gmtime, strftime 
 
 header = {
 'Accept':'application/json, text/javascript, */*; q=0.01',
@@ -21,5 +22,5 @@ r = requests.get(url,headers=header,timeout=0.5)
 
 data = json.loads(r.text)
 
-with open('data.json', 'w') as outfile:
+with open('data '+strftime("%Y-%m-%d-%H-%M-%S", gmtime())+'.json', 'w') as outfile:
     json.dump(data, outfile,ensure_ascii=False)

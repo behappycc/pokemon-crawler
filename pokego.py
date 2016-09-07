@@ -3,6 +3,7 @@ from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.poolmanager import PoolManager
 import ssl
 import json
+
 from time import gmtime, strftime ,sleep
 
 header = {
@@ -23,7 +24,21 @@ print (url)
 
 def crawler():
 	while(True):
-		r = requests.get(url,headers=header,timeout=0.5)
+		try:
+			r = requests.get(url,headers=header,timeout=0.5)
+
+		except requests.exceptions.Timeout:
+		    pass
+		    # Maybe set up for a retry, or continue in a retry loop
+		except requests.exceptions.TooManyRedirects:
+		    pass
+		    # Tell the user their URL was bad and try a different one
+		except requests.exceptions.RequestException as e:
+			pass
+		except urrlib2.URLError:
+		    print ("Connection failed")
+		    
+		    # catastrophic error. bail.
 		if str(r) == "<Response [200]>":
 			break
 		else:

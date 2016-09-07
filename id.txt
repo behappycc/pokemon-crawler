@@ -1,0 +1,301 @@
+bulbasaur 1 - Bulbasaur
+
+ivysaur 2 - Ivysaur
+
+venusaur 3 - Venusaur
+
+charmander 4 - Charmander
+
+charmeleon 5 - Charmeleon
+
+charizard 6 - Charizard
+
+squirtle 7 - Squirtle
+
+wartortle 8 - Wartortle
+
+blastoise 9 - Blastoise
+
+caterpie 10 - Caterpie
+
+metapod 11 - Metapod
+
+butterfree 12 - Butterfree
+
+weedle 13 - Weedle
+
+kakuna 14 - Kakuna
+
+beedrill 15 - Beedrill
+
+pidgey 16 - Pidgey
+
+pidgeotto 17 - Pidgeotto
+
+pidgeot 18 - Pidgeot
+
+rattata 19 - Rattata
+
+raticate 20 - Raticate
+
+spearow 21 - Spearow
+
+fearow 22 - Fearow
+
+ekans 23 - Ekans
+
+arbok 24 - Arbok
+
+pikachu 25 - Pikachu
+
+raichu 26 - Raichu
+
+sandshrew 27 - Sandshrew
+
+sandslash 28 - Sandslash
+
+nidoran-female 29 - Nidoran♀
+
+nidorina 30 - Nidorina
+
+nidoqueen 31 - Nidoqueen
+
+nidoran-male 32 - Nidoran♂
+
+nidorino 33 - Nidorino
+
+nidoking 34 - Nidoking
+
+clefairy 35 - Clefairy
+
+clefable 36 - Clefable
+
+vulpix 37 - Vulpix
+
+ninetales 38 - Ninetales
+
+jigglypuff 39 - Jigglypuff
+
+wigglytuff 40 - Wigglytuff
+
+zubat 41 - Zubat
+
+golbat 42 - Golbat
+
+oddish 43 - Oddish
+
+gloom 44 - Gloom
+
+vileplume 45 - Vileplume
+
+paras 46 - Paras
+
+parasect 47 - Parasect
+
+venonat 48 - Venonat
+
+venomoth 49 - Venomoth
+
+diglett 50 - Diglett
+
+dugtrio 51 - Dugtrio
+
+meowth 52 - Meowth
+
+persian 53 - Persian
+
+psyduck 54 - Psyduck
+
+golduck 55 - Golduck
+
+mankey 56 - Mankey
+
+primeape 57 - Primeape
+
+growlithe 58 - Growlithe
+
+arcanine 59 - Arcanine
+
+poliwag 60 - Poliwag
+
+poliwhirl 61 - Poliwhirl
+
+poliwrath 62 - Poliwrath
+
+abra 63 - Abra
+
+kadabra 64 - Kadabra
+
+alakazam 65 - Alakazam
+
+machop 66 - Machop
+
+machoke 67 - Machoke
+
+machamp 68 - Machamp
+
+bellsprout 69 - Bellsprout
+
+weepinbell 70 - Weepinbell
+
+victreebel 71 - Victreebel
+
+tentacool 72 - Tentacool
+
+tentacruel 73 - Tentacruel
+
+geodude 74 - Geodude
+
+graveler 75 - Graveler
+
+golem 76 - Golem
+
+ponyta 77 - Ponyta
+
+rapidash 78 - Rapidash
+
+slowpoke 79 - Slowpoke
+
+slowbro 80 - Slowbro
+
+magnemite 81 - Magnemite
+
+magneton 82 - Magneton
+
+farfetchd 83 - Farfetch&#39;d
+
+doduo 84 - Doduo
+
+dodrio 85 - Dodrio
+
+seel 86 - Seel
+
+dewgong 87 - Dewgong
+
+grimer 88 - Grimer
+
+muk 89 - Muk
+
+shellder 90 - Shellder
+
+cloyster 91 - Cloyster
+
+gastly 92 - Gastly
+
+haunter 93 - Haunter
+
+gengar 94 - Gengar
+
+onix 95 - Onix
+
+drowzee 96 - Drowzee
+
+hypno 97 - Hypno
+
+krabby 98 - Krabby
+
+kingler 99 - Kingler
+
+voltorb 100 - Voltorb
+
+electrode 101 - Electrode
+
+exeggcute 102 - Exeggcute
+
+exeggutor 103 - Exeggutor
+
+cubone 104 - Cubone
+
+marowak 105 - Marowak
+
+hitmonlee 106 - Hitmonlee
+
+hitmonchan 107 - Hitmonchan
+
+lickitung 108 - Lickitung
+
+koffing 109 - Koffing
+
+weezing 110 - Weezing
+
+rhyhorn 111 - Rhyhorn
+
+rhydon 112 - Rhydon
+
+chansey 113 - Chansey
+
+tangela 114 - Tangela
+
+kangaskhan 115 - Kangaskhan
+
+horsea 116 - Horsea
+
+seadra 117 - Seadra
+
+goldeen 118 - Goldeen
+
+seaking 119 - Seaking
+
+staryu 120 - Staryu
+
+starmie 121 - Starmie
+
+mr-mime 122 - Mr. Mime
+
+scyther 123 - Scyther
+
+jynx 124 - Jynx
+
+electabuzz 125 - Electabuzz
+
+magmar 126 - Magmar
+
+pinsir 127 - Pinsir
+
+tauros 128 - Tauros
+
+magikarp 129 - Magikarp
+
+gyarados 130 - Gyarados
+
+lapras 131 - Lapras
+
+ditto 132 - Ditto
+
+eevee 133 - Eevee
+
+vaporeon 134 - Vaporeon
+
+jolteon 135 - Jolteon
+
+flareon 136 - Flareon
+
+porygon 137 - Porygon
+
+omanyte 138 - Omanyte
+
+omastar 139 - Omastar
+
+kabuto 140 - Kabuto
+
+kabutops 141 - Kabutops
+
+aerodactyl 142 - Aerodactyl
+
+snorlax 143 - Snorlax
+
+articuno 144 - Articuno
+
+zapdos 145 - Zapdos
+
+moltres 146 - Moltres
+
+dratini 147 - Dratini
+
+dragonair 148 - Dragonair
+
+dragonite 149 - Dragonite
+
+mewtwo 150 - Mewtwo
+
+mew 151 - Mew

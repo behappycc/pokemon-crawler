@@ -84,23 +84,35 @@ def getCoordinateValue(pokeList):
 	value/= fileNum
 	return value
 
+def printPokemon(l):
+	i = 0
+	for item in l :
+		i+=1
+		if pokemonStar[item[3][0]]>0:
+			print (item)
+		#if i >150:
+		#	break
+
 def printTuple(l):
 	i = 0
 	for item in l :
 		i+=1
 		print (item)
-		if i >100:
+		if i >150:
 			break
 
 def findPoke(pokeMap,pokeID):
 	pointList = []
-	b = pokeMonCounting[pokeID] / sum(pokeMonCounting)
+	b = 0
+	for ID in pokeID:
+		b += pokeMonCounting[ID] 
+	b = b / sum(pokeMonCounting)
 	print (b)
 	for k in pokeMap.keys():
 		appear = 0.0
 		for pokemon in pokeMap[k]:
-			#print (type(pokemon[0]),type(pokeID))
-			if pokemon[0] == pokeID:
+			
+			if pokemon[0] in pokeID:
 				appear+=1.0
 		if float(appear/len(pokeMap[k]))/float(len(pokeMap[k])/fileNum) > b:
 			pointList.append((k,float(appear/len(pokeMap[k]))*float(len(pokeMap[k])/fileNum)))
@@ -118,11 +130,14 @@ for f in onlyfiles:
 		zh = pokemonZhTw[en]
 		key = str((lat,lng))
 		
+		#if pokemonStar[en] > 0:
 		if key not in pokeMonMap:
 			pokeMonMap[key] = []
-			pokeMonMap[key].append((pokemon['id'],pokemon['time'],index,(en,zh)))
-		else:
-			pokeMonMap[key].append((pokemon['id'],pokemon['time'],index,(en,zh)))
+		
+		pokeMonMap[key].append((pokemon['id'],pokemon['time'],index,(en,zh)))
+		
+sorting = []
+average = 0
 
 
 for key in pokeMonMap.keys():
@@ -139,24 +154,14 @@ for key in pokeMonMap.keys():
 	for r in tobeRemove:
 		pokeMonMap[key].remove(r)
 
-	
-
-
-
-pokeMonNum=0
-sorting = []
-average = 0
-
-for key in pokeMonMap.keys():
-
 	value =getCoordinateValue(pokeMonMap[key])
 	average += value
-	sorting.append((key,value))
+	sorting.append((key,value))	
 	
 sortedList = sorted(sorting, key=lambda tup: tup[1], reverse=True)
-
-
 average = average / len(pokeMonMap.keys())
+
+
 print ('There are '+str(len(pokeMonMap.keys()))+' pokemons points')
 print ('The average value is '+str(average))
 
@@ -164,7 +169,7 @@ print ('The average value is '+str(average))
 
 for i in range(len(sortedList)):
 	print (sortedList[i][1]*fileNum)
-	printTuple(pokeMonMap[sortedList[i][0]])
+	printPokemon(pokeMonMap[sortedList[i][0]])
 	print ('=============='+sortedList[i][0]+'=================')
 	enter = input('press Enter to next')
 	if enter == 'exit':
@@ -177,8 +182,8 @@ while True:
 	print (str((lat,lng)))
 	if str((lat,lng)) in pokeMonMap:
 		value = getCoordinateValue(pokeMonMap[str((lat,lng))])
-		printTuple(pokeMonMap[str((lat,lng))])
+		printPokemon(pokeMonMap[str((lat,lng))])
 	
 
-	pokeID = int(input('ID? :'))
+	pokeID =[int(x) for x in input('ID? :').split()]
 	printTuple(findPoke(pokeMonMap,pokeID))

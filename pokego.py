@@ -24,6 +24,7 @@ print (url)
 
 def crawler():
 	while(True):
+		r = ''
 		try:
 			r = requests.get(url,headers=header,timeout=0.5)
 
@@ -35,9 +36,6 @@ def crawler():
 		    # Tell the user their URL was bad and try a different one
 		except requests.exceptions.RequestException as e:
 			pass
-		except urrlib2.URLError:
-		    print ("Connection failed")
-		    
 		    # catastrophic error. bail.
 		if str(r) == "<Response [200]>":
 			break

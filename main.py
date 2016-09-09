@@ -4,5 +4,5 @@ from time import sleep
 
 while(True):
 	pokego.crawler()
-	sleep(300+random.randint(-20,20))
+	sleep(200+random.randint(-20,20))
 

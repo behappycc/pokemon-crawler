@@ -40,7 +40,9 @@ p16='https://poke5566.com/pokemons?lat0=25.03228944748724&lng0=121.4002191170320
 p17='https://poke5566.com/pokemons?lat0=25.03228944748724&lng0=121.3570462807283&lat1=24.95889790015926&lng1=121.3138734444246'
 p18='https://poke5566.com/pokemons?lat0=24.95889790015926&lng0=121.4002191170320&lat1=24.927295926469974&lng1=121.3570462807283'
 p19='https://poke5566.com/pokemons?lat0=24.95889790015926&lng0=121.3570462807283&lat1=24.927295926469974&lng1=121.3138734444246'
-pointsList = [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19]
+
+
+pointsList = [p1,p2,p3,p4,p5,p7,p6,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19]
 
 
 ##url = 'https://poke5566.com/pokemons?latBL=25.200659&lngBL=121.648051&latTR=24.896521&lngTR=121.178511'
@@ -55,12 +57,13 @@ def crawler():
 	random.shuffle(pointsList)
 	for p in pointsList:
 		while True:
+			r=''	
 			try:
 				url = p
 				r = requests.get(url,headers=header,timeout=0.5)
 
 			except requests.exceptions.Timeout:
-			    pass
+			    print ('time out')
 			    # Maybe set up for a retry, or continue in a retry loop
 			except requests.exceptions.TooManyRedirects:
 			    pass
@@ -68,10 +71,12 @@ def crawler():
 			except requests.exceptions.RequestException as e:
 				pass
 		    # catastrophic error. bail.
-			if str(r) == "<Response [200]>":
+			if str(r) == "<Response [200]>" and len(r.text) > 100:
 				print(p+' OK.')
 				break
 			else:
+				print ('data miss')
+				print (p+' BAD')
 				sleep(3)
 
 		sleep(5)
@@ -84,10 +89,16 @@ def crawler():
 		elif i > 1 and i<len(pointsList):
 			text += ', '+r.text.split(']')[0].split('[')[1]
 
-	data = json.loads(text)
+	try:
+		data = json.loads(text)
+		with open('./pokemon/data '+strftime("%Y-%m-%d-%H-%M-%S", gmtime())+'.json', 'w') as outfile:
+			json.dump(data, outfile,ensure_ascii=False)
+	except ValueError:
+		with open('./errorLog '+strftime("%Y-%m-%d-%H-%M-%S", gmtime()),'w') as outfile:
+			outfile.write(text)
+		crawler()
 
-	with open('./pokemon/data '+strftime("%Y-%m-%d-%H-%M-%S", gmtime())+'.json', 'w') as outfile:
-	    json.dump(data, outfile,ensure_ascii=False)
+	
 
 
 

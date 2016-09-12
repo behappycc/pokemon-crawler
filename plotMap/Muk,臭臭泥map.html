@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps - pygmaps </title>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
+<script type="text/javascript">
+	function initialize() {
+		var centerlatlng = new google.maps.LatLng(25.100000, 121.500000);
+		var myOptions = {
+			zoom: 11,
+			center: centerlatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+var heatmap_points = [
+new google.maps.LatLng(24.981932, 121.533211),
+new google.maps.LatLng(25.043623, 121.456551),
+new google.maps.LatLng(25.075264, 121.581367),
+new google.maps.LatLng(24.987514, 121.433701),
+new google.maps.LatLng(25.015656, 121.538208),
+new google.maps.LatLng(25.054094, 121.550957),
+new google.maps.LatLng(25.018438, 121.471992),
+new google.maps.LatLng(25.080757, 121.485916),
+new google.maps.LatLng(25.084965, 121.545158),
+new google.maps.LatLng(25.013586, 121.529732),
+new google.maps.LatLng(25.059851, 121.532494),
+new google.maps.LatLng(25.055143, 121.450928),
+new google.maps.LatLng(24.999950, 121.479050),
+new google.maps.LatLng(25.034903, 121.495110),
+new google.maps.LatLng(24.956215, 121.221992),
+new google.maps.LatLng(24.981636, 121.542931),
+new google.maps.LatLng(25.003544, 121.412003),
+new google.maps.LatLng(25.107559, 121.517509),
+new google.maps.LatLng(25.012932, 121.485916),
+new google.maps.LatLng(24.967918, 121.533920),
+new google.maps.LatLng(25.066801, 121.481102),
+new google.maps.LatLng(25.066626, 121.598312),
+new google.maps.LatLng(25.042255, 121.547035),
+new google.maps.LatLng(25.128777, 121.499931),
+new google.maps.LatLng(25.025373, 121.516258),
+new google.maps.LatLng(25.038618, 121.291649),
+new google.maps.LatLng(25.026114, 121.478867),
+new google.maps.LatLng(25.083073, 121.597778),
+new google.maps.LatLng(25.041628, 121.567993),
+new google.maps.LatLng(24.996046, 121.562019),
+new google.maps.LatLng(25.064810, 121.556129),
+new google.maps.LatLng(25.105913, 121.520271),
+new google.maps.LatLng(25.050074, 121.531425),
+new google.maps.LatLng(25.087713, 121.474670),
+new google.maps.LatLng(25.004726, 121.484848),
+new google.maps.LatLng(25.050940, 121.546410),
+new google.maps.LatLng(25.159300, 121.401192),
+new google.maps.LatLng(25.047350, 121.541595),
+new google.maps.LatLng(24.999884, 121.440750),
+new google.maps.LatLng(24.989824, 121.541595),
+new google.maps.LatLng(25.018948, 121.531960),
+new google.maps.LatLng(25.014393, 121.515007),
+new google.maps.LatLng(24.989365, 121.502609),
+new google.maps.LatLng(24.963799, 121.514381),
+new google.maps.LatLng(25.074352, 121.539902),
+new google.maps.LatLng(25.156193, 121.400299),
+new google.maps.LatLng(25.037785, 121.558632),
+new google.maps.LatLng(25.040533, 121.573349),
+new google.maps.LatLng(25.081839, 121.484848),
+new google.maps.LatLng(25.113213, 121.512512),
+new google.maps.LatLng(25.066271, 121.500290),
+new google.maps.LatLng(24.981405, 121.441017),
+new google.maps.LatLng(25.038506, 121.504128),
+new google.maps.LatLng(25.068956, 121.502960),
+new google.maps.LatLng(25.030951, 121.429947),
+new google.maps.LatLng(25.055244, 121.506981),
+new google.maps.LatLng(25.072292, 121.636375),
+new google.maps.LatLng(25.045485, 121.467354),
+new google.maps.LatLng(25.019575, 121.521881),
+new google.maps.LatLng(25.137363, 121.515190),
+new google.maps.LatLng(25.018049, 121.519203),
+new google.maps.LatLng(25.182886, 121.445129),
+new google.maps.LatLng(25.006384, 121.475655),
+new google.maps.LatLng(25.081230, 121.494484),
+new google.maps.LatLng(25.050316, 121.533920),
+new google.maps.LatLng(25.003275, 121.306847),
+new google.maps.LatLng(25.067175, 121.578789),
+new google.maps.LatLng(25.024994, 121.503769),
+new google.maps.LatLng(25.068825, 121.498238),
+new google.maps.LatLng(24.953392, 121.230576),
+];
+
+var pointArray = new google.maps.MVCArray(heatmap_points);
+var heatmap;
+heatmap = new google.maps.visualization.HeatmapLayer({
+
+data: pointArray
+});
+heatmap.setMap(map);
+heatmap.set('threshold', 10);
+heatmap.set('radius', 8);
+heatmap.set('opacity', 0.600000);
+heatmap.set('dissipating', true);
+	}
+</script>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+	<div id="map_canvas" style="width: 100%; height: 100%;"></div>
+</body>
+</html>

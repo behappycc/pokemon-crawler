@@ -1,6 +1,7 @@
 import json
 from os import listdir
 from os.path import isfile, join
+import mapPlot
 
 filePath = '.\\pokemon'
 onlyfiles = [join(filePath, f) for f in listdir(filePath) if isfile(join(filePath, f))]
@@ -8,7 +9,7 @@ fileNum = len(onlyfiles)
 
 
 pokeMonMap = {}
-pokeMonCounting =[0]*151
+pokeMonCounting =[0]*152
 
 pokemonEn={"1":"Bulbasaur","2":"Ivysaur","3":"Venusaur","4":"Charmander","5":"Charmeleon","6":"Charizard","7":"Squirtle","8":"Wartortle","9":"Blastoise","10":"Caterpie",
 "11":"Metapod","12":"Butterfree","13":"Weedle","14":"Kakuna","15":"Beedrill","16":"Pidgey","17":"Pidgeotto","18":"Pidgeot","19":"Rattata","20":"Raticate","21":"Spearow",
@@ -93,17 +94,20 @@ def printPokemon(l):
 		#if i >150:
 		#	break
 
-def printTuple(l):
+def printTuple(l,limit = 150):
 	i = 0
 	for item in l :
 		i+=1
 		print (item)
-		if i >150:
+		if i >limit:
 			break
 
 def findPoke(pokeMap,pokeID):
 	pointList = []
+	pointListDraw = []
 	b = 0
+	en = pokemonEn[str(pokeID[0])]
+	zh = pokemonZhTw[en]
 	for ID in pokeID:
 		b += pokeMonCounting[ID] 
 	b = b / sum(pokeMonCounting)
@@ -116,6 +120,10 @@ def findPoke(pokeMap,pokeID):
 				appear+=1.0
 		if float(appear/len(pokeMap[k]))/float(len(pokeMap[k])/fileNum) > b:
 			pointList.append((k,float(appear/len(pokeMap[k]))*float(len(pokeMap[k])/fileNum)))
+		if float(appear/len(pokeMap[k]))/float(len(pokeMap[k])/fileNum) > 10*b:
+			key = (float(k.split(',')[0].split('(')[1]),float(k.split(',')[1].split(')')[0]))
+			pointListDraw.append(key)
+	mapPlot.plot(pointListDraw,en+','+zh)
 	return sorted(pointList, key=lambda tup: tup[1], reverse=True)
 
 
@@ -167,6 +175,7 @@ print ('The average value is '+str(average))
 
 #print (maxPoint,pokeMonMap[key],len(pokeMonMap[key]),key)
 
+'''
 for i in range(len(sortedList)):
 	print (sortedList[i][1]*fileNum)
 	printPokemon(pokeMonMap[sortedList[i][0]])
@@ -187,3 +196,11 @@ while True:
 
 	pokeID =[int(x) for x in input('ID? :').split()]
 	printTuple(findPoke(pokeMonMap,pokeID))
+'''
+
+
+for i in range(1,152):
+	en = pokemonEn[str(i)]
+	if pokemonStar[en] > 0:
+		print ('======'+en+','+pokemonZhTw[en]+'======')
+		printTuple(findPoke(pokeMonMap,[i]),3)
